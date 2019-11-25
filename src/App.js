@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import './styles/App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    getMoviesData();
+  }, []);
+
+  const getMoviesData = async () => {
+    try {
+      const res = await fetch('https://star-wars-api.herokuapp.com/films');
+      const data = await res.json();
+      setMovies(data);
+      setFilteredMovies(data);
+    } catch (err) {
+      setError(true);
+    }
+  };
+
+  return <div className="App"></div>;
 }
 
 export default App;
