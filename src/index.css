@@ -1,13 +1,229 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+
+* {
+  box-sizing: border-box;
+  font-size: 13px;
+  color: #42596f;
+}
+
+html,
+body,
+div,
+img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+:root {
+  --main-background-color: #fff;
+  --main-background-hover: #f8f8f9;
+  --main-border-color: #d8dce1;
+}
+
+.search-bar-container {
+  background-color: #f7f8fa;
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid var(--main-border-color);
+}
+
+.dropdown-menu-container {
+  text-align: left;
+  margin: 0;
+  border-bottom: 1px solid #e4e7ea;
+  display: flex;
+  justify-content: space-between;
+}
+.dropdown-menu-container p {
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+.dropdown-menu-container button {
+  cursor: pointer;
+  border: 0;
+  font-size: inherit;
+  width: 35px;
+  background-color: var(--main-background-color);
+  outline: none;
+  border-radius: 4px;
+}
+
+.dropdown-button {
+  padding: 10px;
+  margin: 5px;
+  background-color: #fdfdfd;
+  border-radius: 4px;
+  border: 1px solid var(--main-border-color);
+  font-weight: 500;
+  cursor: pointer;
+  width: 95px;
+  color: #445b71;
+}
+
+.dropdown-button:focus {
+  outline: none;
+  background-color: #e7edf7;
+  color: #0f4895;
+}
+
+.dropdown-menu-content {
+  background-color: var(--main-background-color);
+  z-index: 1;
+  height: 220px;
+  min-width: 210px;
+  position: absolute;
+  left: 15px;
+  margin: 0;
+  padding: 0;
+  display: none;
+  list-style: none;
+  border-radius: 4px;
+  border: 1px solid rgb(227, 231, 234);
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  color: #47596d;
+}
+.dropdown-menu-content li {
+  text-align: left;
+  font-size: 12px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 400;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.dropdown-menu-content li:hover {
+  background-color: var(--main-background-hover);
+  transition: 0.2s;
+}
+
+.search-field {
+  flex: 3;
+  padding: 10px 10px 10px 35px;
+  margin: 5px;
+  border-radius: 4px;
+  border: 1px solid var(--main-border-color);
+}
+
+.search-field:focus {
+  outline-width: 1px;
+  outline-color: #709fd8;
+  border-radius: 4px;
+  box-shadow: 0 0 1pt 1pt #dee8f6;
+}
+
+.search-field::placeholder {
+  color: #a7b2bc;
+  opacity: 1;
+}
+
+.fa-search {
+  position: absolute;
+  top: 25px;
+  left: 130px;
+  font-size: 17px;
+  color: #7d8c9b;
+}
+
+.movies-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  flex-wrap: wrap;
+}
+
+.movie-list {
+  margin: 0;
+  border-right: 1px solid var(--main-border-color);
+  padding-left: 0;
+  flex: 1 0 435px;
+}
+
+.movie-list-item {
+  background-color: var(--main-background-color);
+  border-bottom: 1px solid #f1f2f5;
+  padding: 20px;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.movie-list-item:hover {
+  background-color: var(--main-background-hover);
+  transition: 0.2s;
+}
+
+.movie-list-subtitle {
+  text-transform: uppercase;
+  margin-right: 20px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.movie-list-title {
+  font-weight: 500;
+}
+
+.movie-list-year {
+  float: right;
+}
+
+.movie-details {
+  padding: 20px;
+  flex: 1 435px;
+}
+
+.movie-details h2 {
+  font-weight: 600;
+}
+
+.movie-details p {
+  letter-spacing: 0.2px;
+}
+
+.no-movies {
+  margin: 35vh auto;
+  font-weight: 500;
+  text-align: center;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 875px) {
+  .movies-container {
+    height: 0vh;
+  }
+  .no-movies {
+    margin: 0px auto;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  * {
+    font-size: 10px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  .movie-list {
+    flex: 1;
+  }
+  .no-movies {
+    font-size: 12px;
+  }
+  .dropdown-menu-content li {
+    font-size: 10px;
+  }
 }
