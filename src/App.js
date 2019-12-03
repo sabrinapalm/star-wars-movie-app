@@ -45,7 +45,7 @@ const App = () => {
 
   const searchMovies = searchValue => {
     if (searchValue) {
-      let filtered = [...movies].filter(movie => movie.fields.title.toLowerCase().includes(searchValue.toLowerCase()));
+      let filtered = movies.filter(movie => movie.fields.title.toLowerCase().includes(searchValue.toLowerCase()));
       setFilteredMovies(filtered);
     } else {
       setFilteredMovies(movies);
