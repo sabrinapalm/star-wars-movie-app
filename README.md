@@ -7,5 +7,3 @@ To view the project, you can run:
 ### `npm start`
 
 in the project folder.
-
-Link to project: https://sabrinapalm.github.io/star-wars-movie-app/
