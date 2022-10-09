@@ -1,9 +1,3 @@
-## Star Wars Movie App
+Star Wars Movie App
 
-To view the project, you can run:
-
-### `npm install`
-
-### `npm start`
-
-in the project folder.
+Deployed here: https://mini-star-wars-movie-app.netlify.app/
